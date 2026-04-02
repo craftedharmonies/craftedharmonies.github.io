@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crafted with Love</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg1: #f6efe6;
+            --bg2: #eadbc9;
+            --card: rgba(255, 255, 255, 0.72);
+            --card-border: rgba(122, 92, 62, 0.14);
+            --text: #2f241c;
+            --muted: rgba(47, 36, 28, 0.72);
+            --accent: #a06a42;
+            --accent2: #cf9a71;
+            --button: rgba(255, 255, 255, 0.72);
+            --button-hover: rgba(255, 255, 255, 0.92);
+            --shadow: 0 20px 60px rgba(91, 64, 45, 0.18);
+        }
+
+        * { box-sizing: border-box; }
+
+        html, body {
+            margin: 0;
+            min-height: 100%;
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(201, 143, 100, 0.28), transparent 30%),
+                radial-gradient(circle at top right, rgba(160, 106, 66, 0.18), transparent 28%),
+                linear-gradient(160deg, var(--bg1), var(--bg2));
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .shell {
+            width: 100%;
+            max-width: 460px;
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .hero {
+            padding: 28px 24px 18px;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 14px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #b67a50, #dfb08a);
+            display: grid;
+            place-items: center;
+            font-size: 36px;
+            font-weight: 800;
+            box-shadow: 0 10px 30px rgba(124, 82, 54, 0.26);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(28px, 5vw, 38px);
+            letter-spacing: -0.03em;
+        }
+
+        .subtitle {
+            margin: 10px 0 0;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 0 24px 20px;
+            flex-wrap: wrap;
+        }
+
+        .lang-btn {
+            border: 1px solid rgba(122, 92, 62, 0.18);
+            background: rgba(255,255,255,0.56);
+            color: var(--text);
+            padding: 10px 14px;
+            border-radius: 999px;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 700;
+            transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .lang-btn:hover {
+            transform: translateY(-1px);
+            background: rgba(255,255,255,0.84);
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            color: #fff;
+            border-color: transparent;
+        }
+
+        .links {
+            padding: 0 20px 24px;
+            display: grid;
+            gap: 14px;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            text-decoration: none;
+            color: var(--text);
+            background: var(--button);
+            border: 1px solid rgba(122, 92, 62, 0.14);
+            border-radius: 18px;
+            padding: 16px 16px 16px 18px;
+            transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .link-card:hover {
+            transform: translateY(-2px);
+            background: var(--button-hover);
+            border-color: rgba(122, 92, 62, 0.24);
+        }
+
+        .link-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            min-width: 0;
+        }
+
+        .icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 auto;
+            font-size: 20px;
+            background: rgba(160, 106, 66, 0.12);
+            line-height: 1;
+        }
+
+        /* icon tweaks */
+        .link-card:nth-child(1) .icon {
+            transform: translateY(-2px);
+        }
+
+        .link-card:nth-child(3) .icon {
+            font-size: 24px;
+        }
+
+        .link-text { min-width: 0; }
+
+        .link-title {
+            font-size: 16px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .link-desc {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 4px;
+            line-height: 1.35;
+        }
+
+        .arrow {
+            font-size: 20px;
+            opacity: 0.8;
+            flex: 0 0 auto;
+        }
+
+        .lang { display: none; }
+        .lang.active { display: block; }
+
+        @media (max-width: 480px) {
+            body { padding: 12px; align-items: stretch; }
+            .shell { border-radius: 22px; }
+            .hero { padding: 24px 18px 16px; }
+            .topbar { padding: 0 18px 18px; }
+            .links { padding: 0 14px 18px; gap: 12px; }
+            .link-card { padding: 14px; border-radius: 16px; }
+            .icon { width: 40px; height: 40px; border-radius: 12px; }
+            .link-title { font-size: 15px; }
+            .link-desc { font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <main class="shell">
+        <section class="hero">
+            <div class="avatar">🧶</div>
+            <h1 data-lang="en">Crafted with love</h1>
+            <h1 data-lang="ru" class="lang">Сделано с любовью</h1>
+            <h1 data-lang="et" class="lang">Armastusega loodud</h1>
+
+            <p class="subtitle" data-lang="en">Handmade pieces, warm details, and cozy things made with love.</p>
+            <p class="subtitle lang" data-lang="ru">Изделия ручной работы, тёплые детали и уютные вещи, сделанные с любовью.</p>
+            <p class="subtitle lang" data-lang="et">Käsitöö, soojad detailid ja hubased tooted, tehtud armastusega.</p>
+        </section>
+
+        <div class="topbar" aria-label="Language selector">
+            <button class="lang-btn active" data-switch="en">EN</button>
+            <button class="lang-btn" data-switch="ru">RU</button>
+            <button class="lang-btn" data-switch="et">ET</button>
+        </div>
+
+        <section class="links">
+            <a class="link-card" href="https://www.instagram.com/crafted.harmonies" target="_blank" rel="noopener noreferrer">
+                <div class="link-left">
+                    <div class="icon">📷</div>
+                    <div class="link-text">
+                        <div class="link-title" data-lang="en">Instagram</div>
+                        <div class="link-title lang" data-lang="ru">Инстаграм</div>
+                        <div class="link-title lang" data-lang="et">Instagram</div>
+                        <div class="link-desc" data-lang="en">Photos, new drops, and little behind-the-scenes moments.</div>
+                        <div class="link-desc lang" data-lang="ru">Фото, новые изделия и немного закулисья.</div>
+                        <div class="link-desc lang" data-lang="et">Pildid, uued tooted ja väike pilk telgitagustesse.</div>
+                    </div>
+                </div>
+                <span class="arrow">↗</span>
+            </a>
+
+            <a class="link-card" href="https://www.yaga.ee/handmade-est" target="_blank" rel="noopener noreferrer">
+                <div class="link-left">
+                    <div class="icon">🧺</div>
+                    <div class="link-text">
+                        <div class="link-title" data-lang="en">Yaga</div>
+                        <div class="link-title lang" data-lang="ru">Яга</div>
+                        <div class="link-title lang" data-lang="et">Yaga</div>
+                        <div class="link-desc" data-lang="en">Handmade items and pieces available to order.</div>
+                        <div class="link-desc lang" data-lang="ru">Изделия ручной работы и вещи под заказ.</div>
+                        <div class="link-desc lang" data-lang="et">Käsitööesemed ja tellitavad tooted.</div>
+                    </div>
+                </div>
+                <span class="arrow">↗</span>
+            </a>
+
+            <a class="link-card" href="https://www.vinted.ee/member/313270020-handmadeest" target="_blank" rel="noopener noreferrer">
+                <div class="link-left">
+                    <div class="icon">🧵</div>
+                    <div class="link-text">
+                        <div class="link-title" data-lang="en">Vinted</div>
+                        <div class="link-title lang" data-lang="ru">Винтед</div>
+                        <div class="link-title lang" data-lang="et">Vinted</div>
+                        <div class="link-desc" data-lang="en">Handmade items and pieces available to order.</div>
+                        <div class="link-desc lang" data-lang="ru">Изделия ручной работы и вещи под заказ.</div>
+                        <div class="link-desc lang" data-lang="et">Käsitööesemed ja tellitavad tooted.</div>
+                    </div>
+                </div>
+                <span class="arrow">↗</span>
+            </a>
+        </section>
+    </main>
+
+    <script>
+        const buttons = document.querySelectorAll('[data-switch]');
+        const langBlocks = document.querySelectorAll('[data-lang]');
+        const defaultLang = 'en';
+
+        function setLanguage(lang) {
+            langBlocks.forEach(el => {
+                el.classList.toggle('lang', el.getAttribute('data-lang') !== lang);
+                el.classList.toggle('active', el.getAttribute('data-lang') === lang);
+            });
+
+            buttons.forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-switch') === lang);
+            });
+
+            document.documentElement.lang = lang;
+        }
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => setLanguage(button.getAttribute('data-switch')));
+        });
+
+        setLanguage(defaultLang);
+    </script>
+</body>
+</html>
