@@ -4,22 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Crafted with Love</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --bg1: #f6efe6;
-            --bg2: #eadbc9;
-            --card: rgba(255, 255, 255, 0.72);
-            --card-border: rgba(122, 92, 62, 0.14);
-            --text: #2f241c;
-            --muted: rgba(47, 36, 28, 0.72);
-            --accent: #a06a42;
-            --accent2: #cf9a71;
+            --bg1: #edf7ef;
+            --bg2: #dfece2;
+
+            --card: rgba(255, 255, 255, 0.9);
+            --card-border: rgba(67, 138, 103, 0.12);
+
+            --text: #234032;
+            --muted: rgba(35, 64, 50, 0.72);
+
+            --accent: #438a67;
+            --accent2: #4b9a73;
+
             --button: rgba(255, 255, 255, 0.72);
-            --button-hover: rgba(255, 255, 255, 0.92);
-            --shadow: 0 20px 60px rgba(91, 64, 45, 0.18);
+            --button-hover: rgba(255, 255, 255, 0.95);
+
+            --shadow: 0 18px 45px rgba(67, 138, 103, 0.10);
         }
 
         * { box-sizing: border-box; }
@@ -30,9 +37,10 @@
             font-family: 'Inter', sans-serif;
             color: var(--text);
             background:
-                radial-gradient(circle at top left, rgba(201, 143, 100, 0.28), transparent 30%),
-                radial-gradient(circle at top right, rgba(160, 106, 66, 0.18), transparent 28%),
+                radial-gradient(circle at top left, rgba(75,154,115,.18), transparent 34%),
+                radial-gradient(circle at top right, rgba(67,138,103,.12), transparent 30%),
                 linear-gradient(160deg, var(--bg1), var(--bg2));
+            overflow-x: hidden;
         }
 
         body {
@@ -40,85 +48,105 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 28px 18px;
+            position: relative;
+            overflow-x: hidden;
         }
 
+        /* декоративные листья */
+        .decor {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.28;
+            filter: blur(0.2px);
+        }
+
+        .leaf {
+            position: absolute;
+            width: 120px;
+            height: 48px;
+            background:
+                linear-gradient(135deg, rgba(127, 177, 140, 0.55), rgba(127, 177, 140, 0.10));
+            border-radius: 0 100% 0 100%;
+            transform-origin: center;
+            box-shadow: inset 0 0 0 1px rgba(120, 160, 130, 0.08);
+        }
+
+        .leaf::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 76%;
+            height: 1.5px;
+            background: rgba(95, 126, 97, 0.28);
+            transform: translate(-50%, -50%) rotate(8deg);
+            border-radius: 999px;
+        }
+
+        .decor-tl { z-index: 0; }
+        .decor-tr { z-index: 0; }
+        .decor-br { z-index: 0; }
+
+        /* чтобы основной контент был поверх листьев */
         .shell {
             width: 100%;
-            max-width: 460px;
-            background: var(--card);
-            border: 1px solid var(--card-border);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border-radius: 28px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
+            max-width: 720px;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            position: relative;
+            z-index: 1;
         }
 
         .hero {
-            padding: 28px 24px 18px;
+            padding: 10px 24px 14px;
             text-align: center;
         }
 
         .avatar {
-            width: 96px;
-            height: 96px;
-            margin: 0 auto 14px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #b67a50, #dfb08a);
-            display: grid;
-            place-items: center;
-            font-size: 36px;
-            font-weight: 800;
-            box-shadow: 0 10px 30px rgba(124, 82, 54, 0.26);
+            width: 190px;
+            height: 190px;
+            margin: 0 auto 22px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.76);
+            padding: 10px;
+            overflow: hidden;
+            box-shadow:
+                0 10px 35px rgba(67,138,103,.12),
+                0 0 0 4px rgba(255,255,255,.72);
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 22px;
+            display: block;
         }
 
         h1 {
             margin: 0;
-            font-size: clamp(28px, 5vw, 38px);
-            letter-spacing: -0.03em;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(52px, 7vw, 76px);
+            line-height: 0.92;
+            font-weight: 600;
+            color: #1f4d37;
+            letter-spacing: -0.04em;
         }
 
         .subtitle {
-            margin: 10px 0 0;
+            margin: 16px auto 0;
+            max-width: 460px;
             color: var(--muted);
-            font-size: 15px;
-            line-height: 1.5;
-        }
-
-        .topbar {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            padding: 0 24px 20px;
-            flex-wrap: wrap;
-        }
-
-        .lang-btn {
-            border: 1px solid rgba(122, 92, 62, 0.18);
-            background: rgba(255,255,255,0.56);
-            color: var(--text);
-            padding: 10px 14px;
-            border-radius: 999px;
-            cursor: pointer;
-            font: inherit;
-            font-weight: 700;
-            transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-        }
-
-        .lang-btn:hover {
-            transform: translateY(-1px);
-            background: rgba(255,255,255,0.84);
-        }
-
-        .lang-btn.active {
-            background: linear-gradient(135deg, var(--accent), var(--accent2));
-            color: #fff;
-            border-color: transparent;
+            font-size: clamp(18px, 2.2vw, 21px);
+            line-height: 1.55;
         }
 
         .links {
-            padding: 0 20px 24px;
+            padding: 30px 20px 24px;
             display: grid;
             gap: 14px;
         }
@@ -130,175 +158,229 @@
             gap: 16px;
             text-decoration: none;
             color: var(--text);
-            background: var(--button);
-            border: 1px solid rgba(122, 92, 62, 0.14);
-            border-radius: 18px;
-            padding: 16px 16px 16px 18px;
-            transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+            background: rgba(255,255,255,.92);
+            border: 1px solid rgba(255,255,255,.7);
+            border-radius: 26px;
+            padding: 18px 20px;
+            box-shadow:
+                0 10px 28px rgba(0,0,0,.05),
+                0 2px 8px rgba(67,138,103,.06);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
         }
 
         .link-card:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             background: var(--button-hover);
-            border-color: rgba(122, 92, 62, 0.24);
+            box-shadow:
+                0 16px 36px rgba(0,0,0,.08),
+                0 6px 16px rgba(67,138,103,.10);
         }
 
         .link-left {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 16px;
             min-width: 0;
         }
 
         .icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 14px;
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex: 0 0 auto;
-            font-size: 20px;
-            background: rgba(160, 106, 66, 0.12);
-            line-height: 1;
+            background: rgba(67, 138, 103, 0.06);
+            overflow: hidden;
         }
 
-        /* icon tweaks */
-        .link-card:nth-child(1) .icon {
-            transform: translateY(-2px);
+        .icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            border-radius: 14px;
         }
 
-        .link-card:nth-child(3) .icon {
-            font-size: 24px;
+        .icon-vinted img {
+            transform: scale(1.25);
+            transform-origin: center;
         }
 
-        .link-text { min-width: 0; }
+        .social-logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            border-radius: 14px;
+        }
+
+        .link-text {
+            min-width: 0;
+        }
 
         .link-title {
-            font-size: 16px;
-            font-weight: 800;
-            line-height: 1.2;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            font-weight: 700;
+            line-height: 1;
+            color: #234032;
         }
 
         .link-desc {
-            font-size: 13px;
+            font-size: 16px;
             color: var(--muted);
-            margin-top: 4px;
+            margin-top: 6px;
             line-height: 1.35;
         }
 
         .arrow {
-            font-size: 20px;
-            opacity: 0.8;
+            font-size: 34px;
+            color: #2f6f50;
+            opacity: .82;
             flex: 0 0 auto;
+            line-height: 1;
         }
 
-        .lang { display: none; }
-        .lang.active { display: block; }
+        @media (max-width: 560px) {
+            body {
+                padding: 18px 12px;
+            }
 
-        @media (max-width: 480px) {
-            body { padding: 12px; align-items: stretch; }
-            .shell { border-radius: 22px; }
-            .hero { padding: 24px 18px 16px; }
-            .topbar { padding: 0 18px 18px; }
-            .links { padding: 0 14px 18px; gap: 12px; }
-            .link-card { padding: 14px; border-radius: 16px; }
-            .icon { width: 40px; height: 40px; border-radius: 12px; }
-            .link-title { font-size: 15px; }
-            .link-desc { font-size: 12px; }
+            .hero {
+                padding: 8px 12px 10px;
+            }
+
+            .avatar {
+                width: 150px;
+                height: 150px;
+                border-radius: 24px;
+                margin-bottom: 18px;
+            }
+
+            h1 {
+                font-size: clamp(42px, 11vw, 58px);
+            }
+
+            .subtitle {
+                font-size: 16px;
+                max-width: 320px;
+            }
+
+            .links {
+                padding: 24px 6px 18px;
+                gap: 12px;
+            }
+
+            .link-card {
+                padding: 14px 14px;
+                border-radius: 20px;
+            }
+
+            .icon {
+                width: 48px;
+                height: 48px;
+                border-radius: 14px;
+            }
+
+            .link-title {
+                font-size: 22px;
+            }
+
+            .link-desc {
+                font-size: 13px;
+            }
+
+            .arrow {
+                font-size: 28px;
+            }
         }
     </style>
 </head>
 <body>
     <main class="shell">
         <section class="hero">
-            <div class="avatar">🧶</div>
-            <h1 data-lang="en">Crafted with love</h1>
-            <h1 data-lang="ru" class="lang">Сделано с любовью</h1>
-            <h1 data-lang="et" class="lang">Armastusega loodud</h1>
+            <div class="avatar">
+                <img src="logo.jpg" alt="Crafted Harmonies">
+            </div>
 
-            <p class="subtitle" data-lang="en">Handmade pieces, warm details, and cozy things made with love.</p>
-            <p class="subtitle lang" data-lang="ru">Изделия ручной работы, тёплые детали и уютные вещи, сделанные с любовью.</p>
-            <p class="subtitle lang" data-lang="et">Käsitöö, soojad detailid ja hubased tooted, tehtud armastusega.</p>
+            <h1>Crafted with love</h1>
+            <p class="subtitle">Handmade pieces, warm details, and cozy things made with love.</p>
         </section>
 
-        <div class="topbar" aria-label="Language selector">
-            <button class="lang-btn active" data-switch="en">EN</button>
-            <button class="lang-btn" data-switch="ru">RU</button>
-            <button class="lang-btn" data-switch="et">ET</button>
-        </div>
-
         <section class="links">
-            <a class="link-card" href="https://www.instagram.com/crafted.harmonies" target="_blank" rel="noopener noreferrer">
+            <a class="link-card" href="https://www.etsy.com/shop/CraftedHarmoniesEst?ref=dashboard-header" target="_blank" rel="noopener noreferrer">
                 <div class="link-left">
-                    <div class="icon">📷</div>
+                    <div class="icon">
+                        <img class="social-logo" src="icons/etsy.png" alt="Etsy">
+                    </div>
                     <div class="link-text">
-                        <div class="link-title" data-lang="en">Instagram</div>
-                        <div class="link-title lang" data-lang="ru">Инстаграм</div>
-                        <div class="link-title lang" data-lang="et">Instagram</div>
-                        <div class="link-desc" data-lang="en">Photos, new drops, and little behind-the-scenes moments.</div>
-                        <div class="link-desc lang" data-lang="ru">Фото, новые изделия и немного закулисья.</div>
-                        <div class="link-desc lang" data-lang="et">Pildid, uued tooted ja väike pilk telgitagustesse.</div>
+                        <div class="link-title">Etsy</div>
+                        <div class="link-desc">Handmade items and pieces available to order.</div>
                     </div>
                 </div>
-                <span class="arrow">↗</span>
+                <span class="arrow">→</span>
+            </a>
+
+            <a class="link-card" href="https://www.instagram.com/crafted.harmonies" target="_blank" rel="noopener noreferrer">
+                <div class="link-left">
+                    <div class="icon">
+                        <img class="social-logo" src="icons/instagram.png" alt="Instagram">
+                    </div>
+                    <div class="link-text">
+                        <div class="link-title">Instagram</div>
+                        <div class="link-desc">Photos, new drops, and little behind-the-scenes moments.</div>
+                    </div>
+                </div>
+                <span class="arrow">→</span>
             </a>
 
             <a class="link-card" href="https://www.yaga.ee/handmade-est" target="_blank" rel="noopener noreferrer">
                 <div class="link-left">
-                    <div class="icon">🧺</div>
+                    <div class="icon">
+                        <img class="social-logo" src="icons/yaga.png" alt="Yaga">
+                    </div>
                     <div class="link-text">
-                        <div class="link-title" data-lang="en">Yaga</div>
-                        <div class="link-title lang" data-lang="ru">Яга</div>
-                        <div class="link-title lang" data-lang="et">Yaga</div>
-                        <div class="link-desc" data-lang="en">Handmade items and pieces available to order.</div>
-                        <div class="link-desc lang" data-lang="ru">Изделия ручной работы и вещи под заказ.</div>
-                        <div class="link-desc lang" data-lang="et">Käsitööesemed ja tellitavad tooted.</div>
+                        <div class="link-title">Yaga</div>
+                        <div class="link-desc">Handmade items and pieces available to order.</div>
                     </div>
                 </div>
-                <span class="arrow">↗</span>
+                <span class="arrow">→</span>
             </a>
 
             <a class="link-card" href="https://www.vinted.ee/member/313270020-handmadeest" target="_blank" rel="noopener noreferrer">
                 <div class="link-left">
-                    <div class="icon">🧵</div>
+                    <div class="icon icon-vinted">
+                        <img class="social-logo" src="icons/vinted.png" alt="Vinted">
+                    </div>
                     <div class="link-text">
-                        <div class="link-title" data-lang="en">Vinted</div>
-                        <div class="link-title lang" data-lang="ru">Винтед</div>
-                        <div class="link-title lang" data-lang="et">Vinted</div>
-                        <div class="link-desc" data-lang="en">Handmade items and pieces available to order.</div>
-                        <div class="link-desc lang" data-lang="ru">Изделия ручной работы и вещи под заказ.</div>
-                        <div class="link-desc lang" data-lang="et">Käsitööesemed ja tellitavad tooted.</div>
+                        <div class="link-title">Vinted</div>
+                        <div class="link-desc">Handmade items and pieces available to order.</div>
                     </div>
                 </div>
-                <span class="arrow">↗</span>
+                <span class="arrow">→</span>
             </a>
         </section>
     </main>
-
-    <script>
-        const buttons = document.querySelectorAll('[data-switch]');
-        const langBlocks = document.querySelectorAll('[data-lang]');
-        const defaultLang = 'en';
-
-        function setLanguage(lang) {
-            langBlocks.forEach(el => {
-                el.classList.toggle('lang', el.getAttribute('data-lang') !== lang);
-                el.classList.toggle('active', el.getAttribute('data-lang') === lang);
-            });
-
-            buttons.forEach(btn => {
-                btn.classList.toggle('active', btn.getAttribute('data-switch') === lang);
-            });
-
-            document.documentElement.lang = lang;
-        }
-
-        buttons.forEach(button => {
-            button.addEventListener('click', () => setLanguage(button.getAttribute('data-switch')));
-        });
-
-        setLanguage(defaultLang);
-    </script>
 </body>
+<div class="decor decor-tl" aria-hidden="true">
+    <span class="leaf" style="left:-20px; top:0px; transform:rotate(-35deg) scale(1.15)"></span>
+    <span class="leaf" style="left:55px; top:40px; transform:rotate(-10deg) scale(.95)"></span>
+    <span class="leaf" style="left:130px; top:95px; transform:rotate(20deg) scale(1.05)"></span>
+    <span class="leaf" style="left:35px; top:125px; transform:rotate(42deg) scale(.85)"></span>
+</div>
+
+<div class="decor decor-tr" aria-hidden="true">
+    <span class="leaf" style="right:0px; top:10px; transform:rotate(35deg) scale(1.05)"></span>
+    <span class="leaf" style="right:55px; top:55px; transform:rotate(10deg) scale(.9)"></span>
+    <span class="leaf" style="right:115px; top:105px; transform:rotate(-20deg) scale(1.1)"></span>
+</div>
+
+<div class="decor decor-br" aria-hidden="true">
+    <span class="leaf" style="right:5px; bottom:10px; transform:rotate(145deg) scale(1.15)"></span>
+    <span class="leaf" style="right:70px; bottom:55px; transform:rotate(165deg) scale(.95)"></span>
+    <span class="leaf" style="right:135px; bottom:110px; transform:rotate(125deg) scale(1.05)"></span>
+    <span class="leaf" style="right:40px; bottom:150px; transform:rotate(155deg) scale(.85)"></span>
+</div>
 </html>
