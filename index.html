@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-824TX97N8H"></script>
@@ -7,390 +7,193 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
       gtag('config', 'G-824TX97N8H');
     </script>
-    
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Crafted with Love</title>
+    <title>Crafted Harmonies — тепло, созданное нашими руками</title>
+    <meta name="description" content="Crafted Harmonies — маленькая семейная мастерская Елены и Екатерины. Валяные тапочки из шерсти, вязаные аксессуары и уютные изделия ручной работы. Заказы через Instagram." />
+    <link rel="icon" href="logo.jpg" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Caveat:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --bg1: #edf7ef;
-            --bg2: #dfece2;
-
-            --card: rgba(255, 255, 255, 0.9);
-            --card-border: rgba(67, 138, 103, 0.12);
-
-            --text: #234032;
-            --muted: rgba(35, 64, 50, 0.72);
-
-            --accent: #438a67;
-            --accent2: #4b9a73;
-
-            --button: rgba(255, 255, 255, 0.72);
-            --button-hover: rgba(255, 255, 255, 0.95);
-
-            --shadow: 0 18px 45px rgba(67, 138, 103, 0.10);
-        }
-
-        * { box-sizing: border-box; }
-
-        html, body {
-            margin: 0;
-            min-height: 100%;
-            font-family: 'Inter', sans-serif;
-            color: var(--text);
-            background:
-                radial-gradient(circle at top left, rgba(75,154,115,.18), transparent 34%),
-                radial-gradient(circle at top right, rgba(67,138,103,.12), transparent 30%),
-                linear-gradient(160deg, var(--bg1), var(--bg2));
-            overflow-x: hidden;
-        }
-
-        body {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 28px 18px;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* декоративные листья */
-        .decor {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.28;
-            filter: blur(0.2px);
-        }
-
-        .leaf {
-            position: absolute;
-            width: 120px;
-            height: 48px;
-            background:
-                linear-gradient(135deg, rgba(127, 177, 140, 0.55), rgba(127, 177, 140, 0.10));
-            border-radius: 0 100% 0 100%;
-            transform-origin: center;
-            box-shadow: inset 0 0 0 1px rgba(120, 160, 130, 0.08);
-        }
-
-        .leaf::before {
-            content: "";
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            width: 76%;
-            height: 1.5px;
-            background: rgba(95, 126, 97, 0.28);
-            transform: translate(-50%, -50%) rotate(8deg);
-            border-radius: 999px;
-        }
-
-        .decor-tl { z-index: 0; }
-        .decor-tr { z-index: 0; }
-        .decor-br { z-index: 0; }
-
-        /* чтобы основной контент был поверх листьев */
-        .shell {
-            width: 100%;
-            max-width: 720px;
-            background: transparent;
-            border: none;
-            box-shadow: none;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero {
-            padding: 10px 24px 14px;
-            text-align: center;
-        }
-
-        .avatar {
-            width: 190px;
-            height: 190px;
-            margin: 0 auto 22px;
-            border-radius: 30px;
-            background: rgba(255, 255, 255, 0.76);
-            padding: 10px;
-            overflow: hidden;
-            box-shadow:
-                0 10px 35px rgba(67,138,103,.12),
-                0 0 0 4px rgba(255,255,255,.72);
-        }
-
-        .avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 22px;
-            display: block;
-        }
-
-        h1 {
-            margin: 0;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(52px, 7vw, 76px);
-            line-height: 0.92;
-            font-weight: 600;
-            color: #1f4d37;
-            letter-spacing: -0.04em;
-        }
-
-        .subtitle {
-            margin: 16px auto 0;
-            max-width: 460px;
-            color: var(--muted);
-            font-size: clamp(18px, 2.2vw, 21px);
-            line-height: 1.55;
-        }
-
-        .links {
-            padding: 30px 20px 24px;
-            display: grid;
-            gap: 14px;
-        }
-
-        .link-card {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            text-decoration: none;
-            color: var(--text);
-            background: rgba(255,255,255,.92);
-            border: 1px solid rgba(255,255,255,.7);
-            border-radius: 26px;
-            padding: 18px 20px;
-            box-shadow:
-                0 10px 28px rgba(0,0,0,.05),
-                0 2px 8px rgba(67,138,103,.06);
-            transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
-        }
-
-        .link-card:hover {
-            transform: translateY(-3px);
-            background: var(--button-hover);
-            box-shadow:
-                0 16px 36px rgba(0,0,0,.08),
-                0 6px 16px rgba(67,138,103,.10);
-        }
-
-        .link-left {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            min-width: 0;
-        }
-
-        .icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex: 0 0 auto;
-            background: rgba(67, 138, 103, 0.06);
-            overflow: hidden;
-        }
-
-        .icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-            border-radius: 14px;
-        }
-
-        .icon-vinted img {
-            transform: scale(1.25);
-            transform-origin: center;
-        }
-
-        .social-logo {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-            border-radius: 14px;
-        }
-
-        .link-text {
-            min-width: 0;
-        }
-
-        .link-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 26px;
-            font-weight: 700;
-            line-height: 1;
-            color: #234032;
-        }
-
-        .link-desc {
-            font-size: 16px;
-            color: var(--muted);
-            margin-top: 6px;
-            line-height: 1.35;
-        }
-
-        .arrow {
-            font-size: 34px;
-            color: #2f6f50;
-            opacity: .82;
-            flex: 0 0 auto;
-            line-height: 1;
-        }
-
-        @media (max-width: 560px) {
-            body {
-                padding: 18px 12px;
-            }
-
-            .hero {
-                padding: 8px 12px 10px;
-            }
-
-            .avatar {
-                width: 150px;
-                height: 150px;
-                border-radius: 24px;
-                margin-bottom: 18px;
-            }
-
-            h1 {
-                font-size: clamp(42px, 11vw, 58px);
-            }
-
-            .subtitle {
-                font-size: 16px;
-                max-width: 320px;
-            }
-
-            .links {
-                padding: 24px 6px 18px;
-                gap: 12px;
-            }
-
-            .link-card {
-                padding: 14px 14px;
-                border-radius: 20px;
-            }
-
-            .icon {
-                width: 48px;
-                height: 48px;
-                border-radius: 14px;
-            }
-
-            .link-title {
-                font-size: 22px;
-            }
-
-            .link-desc {
-                font-size: 13px;
-            }
-
-            .arrow {
-                font-size: 28px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <main class="shell">
-        <section class="hero">
-            <div class="avatar">
-                <img src="logo.jpg" alt="Crafted Harmonies">
+
+    <!-- декоративные листья -->
+    <div class="decor" aria-hidden="true">
+        <span class="leaf" style="left:-30px; top:24px; transform:rotate(-32deg) scale(1.2)"></span>
+        <span class="leaf" style="left:70px; top:70px; transform:rotate(-8deg) scale(.9)"></span>
+        <span class="leaf" style="left:150px; top:150px; transform:rotate(24deg) scale(1.05)"></span>
+        <span class="leaf" style="right:-20px; top:40px; transform:rotate(38deg) scale(1.1)"></span>
+        <span class="leaf" style="right:80px; top:120px; transform:rotate(12deg) scale(.85)"></span>
+        <span class="leaf" style="right:-25px; bottom:60px; transform:rotate(150deg) scale(1.15)"></span>
+        <span class="leaf" style="right:90px; bottom:160px; transform:rotate(170deg) scale(.9)"></span>
+        <span class="leaf" style="left:-35px; bottom:120px; transform:rotate(-140deg) scale(1)"></span>
+    </div>
+
+    <header class="site-header">
+        <a class="brand" href="#about">
+            <img src="logo.jpg" alt="Crafted Harmonies" />
+            <span class="brand-name">Crafted <em>Harmonies</em></span>
+        </a>
+
+        <nav class="nav" id="nav" aria-label="Основное меню">
+            <a href="#about">О нас</a>
+            <a href="#gallery">Галерея</a>
+            <a href="#order" class="nav-cta">Заказать</a>
+        </nav>
+
+        <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <main>
+        <!-- 1. О нас -->
+        <section id="about" class="about">
+            <div class="about-text reveal">
+                <span class="script">маленькая семейная мастерская · создано с любовью</span>
+                <h1>Тепло, созданное<br /><em>нашими руками</em></h1>
+
+                <p>Привет! Мы — Елена и Екатерина, мама и дочка, а вместе — Crafted Harmonies. 🌿</p>
+
+                <p>Елена — сердце нашей мастерской. Именно её заботливыми руками создаются тёплые валяные тапочки, уютные вязаные вещи и маленькие шерстяные чудеса.</p>
+
+                <p>А Екатерина — человек за кадром. Она фотографирует изделия, ведёт наши социальные сети и помогает маминому творчеству находить новые дома.</p>
+
+                <p>Для нас Crafted Harmonies — это не просто изделия ручной работы. Это тепло, забота и частичка души в каждой вещи. 🤍</p>
+
+                <ul class="about-points">
+                    <li>Сделано с любовью</li>
+                    <li>Натуральная шерсть</li>
+                    <li>Ручная работа</li>
+                    <li>По вашим пожеланиям</li>
+                </ul>
             </div>
 
-            <h1>Crafted with love</h1>
-            <p class="subtitle">Handmade pieces, warm details, and cozy things made with love.</p>
+            <div class="about-photo reveal" data-delay="120">
+                <div class="frame">
+                    <!-- фото: положите photos/about.jpg и замените div на <img src="photos/about.jpg" alt="..."> -->
+                    <div class="frame-empty" aria-hidden="true">
+                        <svg viewBox="0 0 120 48" width="96" height="38" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                            <path d="M8 40 Q 30 8 84 10 Q 70 40 24 40 Q 12 42 8 40 Z" fill="currentColor" stroke="none"/>
+                            <path d="M14 38 Q 46 24 80 13"/>
+                        </svg>
+                    </div>
+                </div>
+                <span class="badge">Елена &amp; Екатерина ♡</span>
+            </div>
         </section>
 
-        <section class="links">
-            <a class="link-card" href="https://www.etsy.com/shop/CraftedHarmoniesEst?ref=dashboard-header" target="_blank" rel="noopener noreferrer">
-                <div class="link-left">
-                    <div class="icon">
-                        <img class="social-logo" src="icons/etsy.png" alt="Etsy">
-                    </div>
-                    <div class="link-text">
-                        <div class="link-title">Etsy</div>
-                        <div class="link-desc">Handmade items and pieces available to order.</div>
-                    </div>
-                </div>
-                <span class="arrow">→</span>
-            </a>
+        <!-- 2. Галерея -->
+        <section id="gallery" class="section">
+            <header class="section-head reveal">
+                <span class="script">наши работы</span>
+                <h2>Галерея</h2>
+                <p>Каждое изделие — маленькая история, созданная с любовью и заботой. Здесь живут наши тёплые тапочки, уютные аксессуары и другие шерстяные чудеса. Нажмите на фото, чтобы рассмотреть каждую деталь поближе. 🤍</p>
+            </header>
 
-            <a class="link-card" href="https://www.instagram.com/crafted.harmonies" target="_blank" rel="noopener noreferrer">
-                <div class="link-left">
-                    <div class="icon">
-                        <img class="social-logo" src="icons/instagram.png" alt="Instagram">
-                    </div>
-                    <div class="link-text">
-                        <div class="link-title">Instagram</div>
-                        <div class="link-desc">Photos, new drops, and little behind-the-scenes moments.</div>
-                    </div>
-                </div>
-                <span class="arrow">→</span>
-            </a>
+            <div class="gallery" id="galleryGrid"></div>
 
-            <a class="link-card" href="https://www.yaga.ee/crafted-harmonies" target="_blank" rel="noopener noreferrer">
-                <div class="link-left">
-                    <div class="icon">
-                        <img class="social-logo" src="icons/yaga.png" alt="Yaga">
-                    </div>
-                    <div class="link-text">
-                        <div class="link-title">Yaga</div>
-                        <div class="link-desc">Handmade items and pieces available to order.</div>
-                    </div>
-                </div>
-                <span class="arrow">→</span>
-            </a>
+            <div class="gallery-more" id="galleryMore" hidden>
+                <button class="gallery-toggle" id="galleryMoreBtn" type="button" aria-label="Показать все фото" aria-expanded="false">
+                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+            </div>
+        </section>
 
-            <a class="link-card" href="https://www.vinted.ee/member/313270020-handmadeest" target="_blank" rel="noopener noreferrer">
-                <div class="link-left">
-                    <div class="icon icon-vinted">
-                        <img class="social-logo" src="icons/vinted.png" alt="Vinted">
-                    </div>
-                    <div class="link-text">
-                        <div class="link-title">Vinted</div>
-                        <div class="link-desc">Handmade items and pieces available to order.</div>
-                    </div>
-                </div>
-                <span class="arrow">→</span>
-            </a>
+        <!-- 3. Как заказать -->
+        <section id="order" class="section">
+            <div class="order-card reveal">
+                <span class="script">заказ занимает пару минут</span>
+                <h2>Как заказать</h2>
+
+                <ol class="order-steps">
+                    <li>
+                        <span class="n">1</span>
+                        <div>
+                            <b>Напишите нам</b>
+                            <p>в Instagram <a href="https://www.instagram.com/crafted.harmonies" target="_blank" rel="noopener noreferrer">@crafted.harmonies</a> — в директ или в комментариях</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <span class="n">2</span>
+                        <div>
+                            <b>Обсудим детали</b>
+                            <p>Поможем выбрать модель, цвет и размер, обсудим сроки и покажем примеры наших работ</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <span class="n">3</span>
+                        <div>
+                            <b>Получите свой заказ</b>
+                            <p>После согласования деталей подтвердим заказ и обсудим оплату. Отправляем по Эстонии и в другие страны</p>
+                        </div>
+                    </li>
+                </ol>
+
+                <a class="btn btn-light" href="https://www.instagram.com/crafted.harmonies" target="_blank" rel="noopener noreferrer">
+                    <img src="icons/instagram.png" alt="" />
+                    Заказать через Instagram
+                </a>
+
+                <p class="order-note">Отвечаем в течение дня · доставка по Эстонии и миру</p>
+            </div>
+        </section>
+
+        <!-- 4. Поддержать мастерскую -->
+        <section id="support" class="section support">
+            <div class="support-card reveal">
+                <h2>Поддержать нашу мастерскую <span class="heart">♡</span></h2>
+                <p>Если вам нравится наше творчество и хочется поддержать нас, вы можете угостить нашу мастерскую чашечкой кофе ☕</p>
+
+                <a class="btn" href="https://www.donationalerts.com/r/crafted_harmonies" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                    Поддержать нас
+                </a>
+
+                <p class="support-note">Любая поддержка для нас очень ценна 🤍</p>
+            </div>
         </section>
     </main>
+
+    <footer>
+        <div class="foot-inner">
+            <a class="brand" href="#about">
+                <img src="logo.jpg" alt="Crafted Harmonies" />
+                <span class="brand-name">Crafted <em>Harmonies</em></span>
+            </a>
+
+            <div class="foot-links">
+                <a class="foot-link" href="https://www.instagram.com/crafted.harmonies" target="_blank" rel="noopener noreferrer">
+                    <img src="icons/instagram.png" alt="" />Instagram
+                </a>
+            </div>
+        </div>
+
+        <p class="copy">© 2026 Crafted Harmonies · создано с любовью</p>
+    </footer>
+
+    <!-- лайтбокс галереи -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фотографии">
+        <button class="lb-btn lb-close" id="lbClose" aria-label="Закрыть">×</button>
+        <button class="lb-btn lb-prev" id="lbPrev" aria-label="Предыдущее фото">‹</button>
+        <img id="lbImg" src="" alt="" />
+        <div class="lb-caption" id="lbCaption"></div>
+        <button class="lb-btn lb-next" id="lbNext" aria-label="Следующее фото">›</button>
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
-<div class="decor decor-tl" aria-hidden="true">
-    <span class="leaf" style="left:-20px; top:0px; transform:rotate(-35deg) scale(1.15)"></span>
-    <span class="leaf" style="left:55px; top:40px; transform:rotate(-10deg) scale(.95)"></span>
-    <span class="leaf" style="left:130px; top:95px; transform:rotate(20deg) scale(1.05)"></span>
-    <span class="leaf" style="left:35px; top:125px; transform:rotate(42deg) scale(.85)"></span>
-</div>
-
-<div class="decor decor-tr" aria-hidden="true">
-    <span class="leaf" style="right:0px; top:10px; transform:rotate(35deg) scale(1.05)"></span>
-    <span class="leaf" style="right:55px; top:55px; transform:rotate(10deg) scale(.9)"></span>
-    <span class="leaf" style="right:115px; top:105px; transform:rotate(-20deg) scale(1.1)"></span>
-</div>
-
-<div class="decor decor-br" aria-hidden="true">
-    <span class="leaf" style="right:5px; bottom:10px; transform:rotate(145deg) scale(1.15)"></span>
-    <span class="leaf" style="right:70px; bottom:55px; transform:rotate(165deg) scale(.95)"></span>
-    <span class="leaf" style="right:135px; bottom:110px; transform:rotate(125deg) scale(1.05)"></span>
-    <span class="leaf" style="right:40px; bottom:150px; transform:rotate(155deg) scale(.85)"></span>
-</div>
 </html>
